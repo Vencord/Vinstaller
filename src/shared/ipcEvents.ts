@@ -5,5 +5,5 @@
  */
 
 export const enum IpcEvents {
-    LIST_DIRS = "list-dirs"
+    LIST_INSTALLS = "list-install"
 }

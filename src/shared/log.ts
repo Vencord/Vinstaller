@@ -4,6 +4,4 @@
  * Copyright (c) 2023 Vendicated, Justice Almanzar, and Vencord contributors
  */
 
-document.getElementById("app").innerHTML = Native.listInstalls()
-    .map(i => `<p>${i.branch}: ${i.basePath}${i.isPatched ? " [PATCHED]" : ""}</p>`)
-    .join("\n");
+export const logDebug = console.log;

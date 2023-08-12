@@ -6,8 +6,8 @@
 
 import { BrowserWindow } from "electron";
 import { join } from "path";
+import { ICON_PATH, STATIC_DIR } from "shared/paths";
 
-import { ICON_PATH, STATIC_DIR } from "../shared/paths";
 import { makeLinksOpenExternally } from "./utils/makeLinksOpenExternally";
 
 export let mainWin: BrowserWindow;

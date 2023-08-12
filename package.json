@@ -6,7 +6,7 @@
     "keywords": [],
     "homepage": "https://vencord.dev/",
     "license": "GPL-3.0",
-    "main": "dist/js/main.js",
+    "main": "dist/js/index.js",
     "scripts": {
         "build": "tsx scripts/build/build.mts",
         "build:dev": "pnpm build --dev",
@@ -60,7 +60,7 @@
         ],
         "linux": {
             "category": "Network",
-            "maintainer": "vendicated+vesktop@riseup.net",
+            "maintainer": "contact@vencord.dev",
             "target": [
                 "AppImage"
             ]

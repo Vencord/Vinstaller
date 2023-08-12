@@ -34,15 +34,27 @@ async function createContext(options: BuildOptions) {
 await Promise.all([
     createContext({
         ...NodeCommonOpts,
-        entryPoints: ["src/main/index.ts"],
-        outfile: "dist/js/main.js",
+        entryPoints: ["src/index.ts"],
+        outfile: "dist/js/index.js",
+        footer: { js: "//# sourceURL=VencordInstallerEntry" }
+    }),
+    createContext({
+        ...NodeCommonOpts,
+        entryPoints: ["src/gui/main/index.ts"],
+        outfile: "dist/js/electronMain.js",
         footer: { js: "//# sourceURL=VencordInstallerMain" }
     }),
     createContext({
         ...NodeCommonOpts,
-        entryPoints: ["src/preload/index.ts"],
-        outfile: "dist/js/preload.js",
+        entryPoints: ["src/gui/preload/index.ts"],
+        outfile: "dist/js/electronPreload.js",
         footer: { js: "//# sourceURL=VencordInstallerPreload" }
+    }),
+    createContext({
+        ...NodeCommonOpts,
+        entryPoints: ["src/cli/index.ts"],
+        outfile: "dist/js/cli.js",
+        footer: { js: "//# sourceURL=VencordInstallerCli" }
     })
 ]);
 
