@@ -1,0 +1,90 @@
+{
+    "name": "Vinstaller",
+    "version": "0.0.1",
+    "private": true,
+    "description": "",
+    "keywords": [],
+    "homepage": "https://vencord.dev/",
+    "license": "GPL-3.0",
+    "main": "dist/js/main.js",
+    "scripts": {
+        "build": "tsx scripts/build/build.mts",
+        "build:dev": "pnpm build --dev",
+        "package": "pnpm build && electron-builder",
+        "package:dir": "pnpm build && electron-builder --dir",
+        "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.mts,.mjs",
+        "lint:fix": "pnpm lint --fix",
+        "start": "pnpm build && electron .",
+        "start:dev": "pnpm build:dev && electron .",
+        "start:watch": "pnpm build:dev && tsx scripts/startWatch.mts",
+        "test": "pnpm lint && pnpm testTypes",
+        "testTypes": "tsc --noEmit",
+        "watch": "pnpm build --watch"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@types/node": "^20.4.6",
+        "@typescript-eslint/eslint-plugin": "^6.2.1",
+        "@typescript-eslint/parser": "^6.2.1",
+        "dotenv": "^16.3.1",
+        "electron": "^25.4.0",
+        "electron-builder": "^24.6.3",
+        "esbuild": "^0.18.17",
+        "eslint": "^8.46.0",
+        "eslint-config-prettier": "^8.9.0",
+        "eslint-import-resolver-alias": "^1.1.2",
+        "eslint-plugin-license-header": "^0.6.0",
+        "eslint-plugin-path-alias": "^1.0.0",
+        "eslint-plugin-prettier": "^5.0.0",
+        "eslint-plugin-simple-import-sort": "^10.0.0",
+        "eslint-plugin-unused-imports": "^3.0.0",
+        "prettier": "^3.0.0",
+        "tsx": "^3.12.7",
+        "type-fest": "^4.1.0",
+        "typescript": "^5.1.6"
+    },
+    "packageManager": "pnpm@8.6.11",
+    "engines": {
+        "node": ">=18",
+        "pnpm": ">=8"
+    },
+    "build": {
+        "appId": "dev.vencord.installer",
+        "productName": "Vinstaller",
+        "files": [
+            "!*",
+            "dist/js",
+            "static",
+            "package.json",
+            "LICENSE"
+        ],
+        "linux": {
+            "category": "Network",
+            "maintainer": "vendicated+vesktop@riseup.net",
+            "target": [
+                "AppImage"
+            ]
+        },
+        "mac": {
+            "target": [
+                {
+                    "target": "default",
+                    "arch": [
+                        "x64",
+                        "arm64"
+                    ]
+                }
+            ],
+            "category": "Network"
+        },
+        "win": {
+            "target": [
+                "portable"
+            ]
+        },
+        "publish": {
+            "provider": "github",
+            "releaseType": "release"
+        }
+    }
+}
