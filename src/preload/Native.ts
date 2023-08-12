@@ -4,4 +4,10 @@
  * Copyright (c) 2023 Vendicated, Justice Almanzar, and Vencord contributors
  */
 
-document.getElementById("app").textContent = await Native.listDirs();
+import { IpcEvents } from "shared/ipcEvents";
+
+import { invoke } from "./typedIpc";
+
+export const Native = {
+    listDirs: () => invoke<string[]>(IpcEvents.LIST_DIRS)
+};

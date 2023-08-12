@@ -16,9 +16,11 @@ export function createMainWindow() {
     const win = (mainWin = new BrowserWindow({
         title: "Vencord Installer",
         webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false,
-            devTools: true
+            nodeIntegration: false,
+            contextIsolation: true,
+            sandbox: true,
+            devTools: true,
+            preload: join(__dirname, "preload.js")
         },
         icon: ICON_PATH,
         autoHideMenuBar: true

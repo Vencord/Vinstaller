@@ -36,7 +36,13 @@ await Promise.all([
         ...NodeCommonOpts,
         entryPoints: ["src/main/index.ts"],
         outfile: "dist/js/main.js",
-        footer: { js: "//# sourceURL=VCDMain" }
+        footer: { js: "//# sourceURL=VencordInstallerMain" }
+    }),
+    createContext({
+        ...NodeCommonOpts,
+        entryPoints: ["src/preload/index.ts"],
+        outfile: "dist/js/preload.js",
+        footer: { js: "//# sourceURL=VencordInstallerPreload" }
     })
 ]);
 

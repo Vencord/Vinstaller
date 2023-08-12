@@ -4,6 +4,8 @@
  * Copyright (c) 2023 Vendicated, Justice Almanzar, and Vencord contributors
  */
 
+import "./ipc";
+
 import { app } from "electron";
 
 import { createMainWindow } from "./mainWindow";

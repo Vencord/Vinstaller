@@ -4,4 +4,7 @@
  * Copyright (c) 2023 Vendicated, Justice Almanzar, and Vencord contributors
  */
 
-document.getElementById("app").textContent = await Native.listDirs();
+import { ipcMain } from "electron";
+import { IpcEvents } from "shared/ipcEvents";
+
+ipcMain.handle(IpcEvents.LIST_DIRS, () => ["banana"]);

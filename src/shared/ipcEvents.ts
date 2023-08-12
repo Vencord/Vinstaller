@@ -4,4 +4,6 @@
  * Copyright (c) 2023 Vendicated, Justice Almanzar, and Vencord contributors
  */
 
-document.getElementById("app").textContent = await Native.listDirs();
+export const enum IpcEvents {
+    LIST_DIRS = "list-dirs"
+}

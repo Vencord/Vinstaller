@@ -4,4 +4,8 @@
  * Copyright (c) 2023 Vendicated, Justice Almanzar, and Vencord contributors
  */
 
-document.getElementById("app").textContent = await Native.listDirs();
+import { contextBridge } from "electron";
+
+import { Native } from "./Native";
+
+contextBridge.exposeInMainWorld("Native", Native);
